@@ -1,0 +1,16 @@
+FROM node:22-alpine
+
+# pnpm setup
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+# installation
+WORKDIR /app
+COPY package.json ./
+RUN pnpm install
+
+# copying rest of project
+COPY . .
+EXPOSE 3000
+CMD ["node", "app.js"]

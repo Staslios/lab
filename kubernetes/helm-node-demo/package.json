@@ -1,0 +1,15 @@
+{
+  "name": "helm-node-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "docker-build": "docker build --debug --progress=plain -f Dockerfile -t node-server:0.0.1 .",
+		"docker-compose": "docker compose -f docker-compose-root.yml up"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.19.0"
+}

@@ -1,9 +1,9 @@
 # Create app
-pnpm create playwright
+`pnpm create playwright`
 
 # Run tests
-pnpm exec playwright test
-    --ui runs UI Mode
+`pnpm exec playwright test`
+- `--ui` runs UI Mode
 
 # Show test reports
-pnpm exec playwright show-report
+`pnpm exec playwright show-report`
