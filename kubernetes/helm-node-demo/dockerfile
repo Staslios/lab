@@ -12,5 +12,5 @@ RUN pnpm install
 
 # copying rest of project
 COPY . .
-EXPOSE 3000
-CMD ["node", "app.js"]
+EXPOSE 7001
+CMD ["node", "./src/index.mjs"]

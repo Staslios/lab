@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node src/index.mjs",
     "docker-build": "docker build --debug --progress=plain -f Dockerfile -t node-server:0.0.1 .",
-		"docker-compose": "docker compose -f docker-compose-root.yml up"
+    "docker-run": "docker run -p 7001:7001 node-server:0.0.1",
+		"docker-compose": "docker compose -f docker-compose-root.yml up",
+    "load-kind": "kind load docker-image node-server:0.0.1",
+    "helm-install": "helm install node-server ./manifest",
+    "helm-uninstall": "helm uninstall node-server"
   },
   "keywords": [],
   "author": "",
