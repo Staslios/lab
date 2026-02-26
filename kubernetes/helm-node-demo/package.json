@@ -2,7 +2,7 @@
   "name": "helm-node-demo",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.mjs",
   "scripts": {
     "start": "node src/index.mjs",
     "docker-build": "docker build --debug --progress=plain -f Dockerfile -t node-server:0.0.1 .",
