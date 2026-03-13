@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const className = Astro.props.className || "";
+---
+<Icon class={className} id="theme-toggle" size=2.6rem name="mdi-light:menu" />
+
+<script is:inline>
+	const themeIco = document.getElementById("theme-toggle");
+	
+	themeIco?.addEventListener("click", () => {
+		const root = document.documentElement;
+		const current = root.style.colorScheme;
+		
+		root.style.colorScheme = current === "dark" ? "light" : "dark";
+	});
+</script>

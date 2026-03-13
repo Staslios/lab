@@ -1,11 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import CSSReset from '../styles/Reset.astro';
+import FontStyles from '../styles/Fonts.astro';
+import Variables from '../styles/Variables.astro';
+import GlobalStyles from '../styles/Globals.astro';
+import BackgroundWave from '../components/BackgroundWave.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<CSSReset/>
+	<Variables />
+	<GlobalStyles/>
+	<FontStyles />
+	<BackgroundWave />
+	<h1>Ostrich Book</h1>
 </Layout>
