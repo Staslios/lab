@@ -1,0 +1,31 @@
+<style>
+    .header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    
+    .header.sticking {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    // selects header element
+    const header = document.querySelector('.header');
+    
+    // creates fake element and places before header
+    const scrollElement = document.createElement('div');
+    scrollElement.setAttribute('data-scroll-watcher', '');
+    header?.before(scrollElement);
+    
+    // observer that toggles 'sticking' class on header when el is not intersecting
+    const navObserver = new IntersectionObserver((entries) => {
+        header?.classList.toggle('sticking', !entries[0].isIntersecting);
+    });
+    
+    // runs observer on fake el
+    navObserver.observe(scrollElement);
+</script>

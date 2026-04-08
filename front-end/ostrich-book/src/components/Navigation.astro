@@ -1,0 +1,84 @@
+<nav class="navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+</nav>
+
+
+
+<style>
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        width: 100%;
+        align-items: center;
+        gap: .8rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        overflow-x: auto
+    }
+    
+    .navigation a {
+        text-decoration: none;
+        position: relative;
+        font-size: clamp(.8rem, 1.6vw + .3rem, 1rem);
+        white-space: nowrap;
+        padding: .16rem .1rem;
+        color: var(--color-text);
+    }
+    
+    .navigation a::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        background-color: var(--color-text);
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+    
+    .navigation a:hover::before, 
+    .navigation a.active::before {
+        width: 100%;
+    }
+</style>
+
+<script>
+	// selects all scollable sections
+	const sections = document.querySelectorAll("div .page");
+
+	// selects al nav links
+	const navLinks = document.querySelectorAll("nav a");
+	
+	
+	const observer = new IntersectionObserver(
+	(entries) => {
+		console.log(entries)
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				// removes active from all links
+				navLinks.forEach(link => link.classList.remove("active"));
+				
+				// finds matching link by taking page's id and looking for nav link with href that matches its
+				const activeLink = document.querySelector(
+				`nav a[href="#${entry.target.id}"]`
+				);
+				
+				// add active class if element exists
+				if (activeLink) {
+					activeLink.classList.add("active");
+				}
+			}
+		});
+	},
+	{
+		rootMargin: "-40% 0px -40% 0px" // trigger when section is in middle of screen
+	}
+	);
+	
+	// observe all sections
+	sections.forEach(section => observer.observe(section));
+</script>
+

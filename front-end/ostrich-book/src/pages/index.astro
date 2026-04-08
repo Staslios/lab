@@ -5,14 +5,27 @@ import FontStyles from '../styles/Fonts.astro';
 import Variables from '../styles/Variables.astro';
 import GlobalStyles from '../styles/Globals.astro';
 import BackgroundWave from '../components/BackgroundWave.astro';
+import Navigation from '../components/Navigation.astro';
+import Button from '../components/Button.astro';
 
 ---
 
 <Layout>
+	<!-- globals -->
 	<CSSReset/>
 	<Variables />
 	<GlobalStyles/>
 	<FontStyles />
-	<BackgroundWave />
+	<!-- globals -->
+
+	<!-- base components -->
+	<Button/>
+	<!-- base components -->
+
+	<Navigation />
 	<h1>Ostrich Book</h1>
+	<BackgroundWave />
+	<h3>Button</h3>
+	<button>Click me!</button>
+	
 </Layout>
