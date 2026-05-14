@@ -1,11 +1,17 @@
 import './App.css';
+import { Router, Route, lazy, LocationProvider } from "preact-iso";
+
+const Home = lazy(() => import("./pages/home/Home.js"));
+const About = lazy(() => import("./pages/about/About.js"));
 
 const App = () => {
   return (
-    <div className="content">
-      <h1>Rsbuild with Preact</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
+    <LocationProvider>
+      <Router>
+        <Route path="/" component={Home} />
+        <Route path="/about" component={About} />
+      </Router>
+    </LocationProvider>
   );
 };
 
